@@ -1,8 +1,8 @@
-+++
-date = '2025-03-04T19:10:05-06:00'
-draft = false
-title = 'Resume'
-+++
+---
+date: "2025-03-04T19:10:05-06:00"
+draft: false
+title: Resume
+---
 # BRETT LOEWEN
 
 204-730-7015 – [loewenb1@myumanitoba.ca](loewenb1@myumanitoba.ca) – [https://github.com/BrettLoewen](https://github.com/BrettLoewen)

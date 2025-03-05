@@ -1,0 +1,12 @@
+baseURL: "https://example.org/"
+title: My Blog
+theme: [PaperMod]
+
+params:
+  homeInfoParams:
+    Title: "Hello there \U0001F44B"
+    Content: Welcome to my statically generated site
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/BrettLoewen/"
