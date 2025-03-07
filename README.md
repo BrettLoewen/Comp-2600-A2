@@ -1,8 +1,8 @@
 # Static Site Resume
 
-Statement of Purpose
+## Statement of Purpose
 
-?
+This document describes the process of creating a static site using Markdown, Hugo, and GitHub Pages. It is directed at people who want a simple strategy to upload documents to the internet, primarily for the purpose of presenting documentation, though the process is not limited to only documentation. This guide expects readers to have a basic understanding of the command line and to be using Windows 10 or later.
 
 ## Prerequisites
 
@@ -151,20 +151,28 @@ And you're done! You wrote a resume using Markdown, created a static site using 
 
 ## Further Resources
 - [Hugo](https://gohugo.io/)
-- [PaperMod Theme](https://github.com/adityatelange/hugo-PaperMod)
-- Learn Git
-- Learn GitHub
-- Learn GitHub Pages
 - [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
+- [Learn Git](https://www.atlassian.com/git/tutorials)
+- [Learn GitHub](https://docs.github.com/en/get-started/start-your-journey/hello-world)
+- [Learn GitHub Pages](https://docs.github.com/en/pages/quickstart)
 - [Adding locally hosted code to GitHub](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
 - [a-good-readme-template](https://github.com/PurpleBooth/a-good-readme-template)
+- [PaperMod Theme](https://github.com/adityatelange/hugo-PaperMod)
 
 ## FAQs
 
-- Change theme
-- Draft
-- New file
-- Clone repo
+Q. Can I use a different theme?
+A. Yes, you can browse many themes on [Hugo's website](https://themes.gohugo.io/), pick the one you like, and follow its install instructions.
+
+Q. Can I write posts in the project but keep them private until I'm ready?
+A. Yes, replace `draft: false` with `draft: true` in your post's header and it will not appear in builds. You can also use the commands `hugo server --buildDrafts` or `hugo server -D` to run the site locally and include drafts if you want to preview what a post looks like before publishing it.
+
+Q. Do I have to use `hugo new content content/posts/<FILE NAME>.md` to make new posts?
+A. 
+
+Q. Do I have to create and link a repository from GitHub
+A. 
+
 
 ## Credits
 
