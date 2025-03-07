@@ -29,14 +29,14 @@ To host your resume online, it will be best to write it in Markdown. This sectio
    - You can use GitHub's guide to writing [found here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), the Markdown guide in the [Further Resources](#further-resources), or any other online Markdown tutorial for information on how to write with Markdown.
 
 > [!NOTE]
-> According to Etter, lightweight markup languages such as Markdown are the best way to write documentation because they are human-readable, easy to learn, and easy to version control, all of which are important qualities of documentation. For these reasons, and because Markdown is the most widely used markup language, we will be using Markdown in this guide.
+> According to Etter's principle of Use Lightweight Markup, lightweight markup languages such as Markdown are the best way to write documentation because they are human-readable, easy to learn, and easy to version control, all of which are important qualities of documentation. For these reasons, and because Markdown is the most widely used markup language, we will be using Markdown in this guide.
 
 ### Creating the Site
 
 To host your resume online, this guide will walk you through using the static site generator Hugo. This section covers creating the site's project on your computer and the following section will cover publishing the site.
 
 > [!NOTE]
-> According to Etter, documentation should be hosted on a website to avoid it getting outdated or ignored. To do this, he reccommends static sites, and using tools to generate them, because they are a simple and effective way to host content.
+> According to Etter's principles of Build a Website and Make Static Websites, documentation should be hosted on a website to avoid it getting outdated or ignored. To do this, he reccommends static sites, and using tools to generate them, because they are a simple and effective way to host content.
 
 1. Run the following commands one-by-one to create a new site using Hugo, replacing `<PROJECT NAME>` with what you want to name the directory for the site:
    - Create the directory for the project:
@@ -56,11 +56,11 @@ To host your resume online, this guide will walk you through using the static si
      ```
      git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
      ```
-   - Open the `config.yml` file and add the following text to the end of it to use the new theme:
+   - Open the `hugo.yaml` file and add the following text to the end of it to use the new theme:
      ```
      theme: ["PaperMod"]
      ```
-   - Optional: Change the mode of the site's home page by adding the following text to the end of `config.yml`:
+   - Optional: Change the mode of the site's home page by adding the following text to the end of `hugo.yaml`:
      ```
      params:
        homeInfoParams:
@@ -95,7 +95,7 @@ hugo server
      git commit -m "Create site"
      ```
 > [!NOTE]
-> According to Etter, technical writing should be stored in a distributed verson control system, like Git. This is not only for the common reasons, such as backups and offline work, but also because they are what developers prefer, and using the tools developers are comfortable with is important in getting them to contribute to the documentation.
+> According to Etter's principle of Use Distributed Version Control, technical writing should be stored in a distributed verson control system, like Git. This is not only for the common reasons, such as backups and offline work, but also because they are what developers prefer, and using the tools developers are comfortable with is important in getting them to contribute to the documentation.
 
 ### Publishing the Site
 
@@ -108,13 +108,17 @@ The site has been made, but it is not accessible anywhere. The next few steps wi
      ```
      mkdir -p .github/workflows
      ```
-   - Create a new file `hugo.yaml` which will hold instructions for publishing the site:
+   - Create a new file `.github/workflows/hugo.yaml` which will hold instructions for publishing the site:
      ```
      notepad .github/workflows/hugo.yaml
      ```
-3. Go to [this repo's GitHub Action](https://github.com/BrettLoewen/Comp-2600-A2/blob/main/.github/workflows/hugo.yaml) file and paste the contents into `hugo.yaml`
-4. Optional: configure your site:
-   - Modify the `baseURL` and `title` values in the project's `config.yml` to match your production URL and your intended site title. The production URL can be easily found after step 6 when the site is published
+3. Go to [this repo's GitHub Action](https://github.com/BrettLoewen/Comp-2600-A2/blob/main/.github/workflows/hugo.yaml) file, copy the contents, and paste it into `.github/workflows/hugo.yaml`
+
+> [!IMPORTANT]
+> Make sure to update your `.github/workflows/hugo.yaml`'s `HUGO_VERSION` value to match the version of Hugo you are using. Use the command `hugo version` to check your version and take the piece that looks like `0.145.0`.
+
+4. Optional: Configure your site:
+   - Modify the `baseURL` and `title` values in the project's root directory's `hugo.yaml` to match your production URL and your intended site title. The production URL can be easily found after step 6 when the site is published
 5. Commit your changes and push them to GitHub:
    - Prepare your changes to be committed:
      ```
@@ -128,7 +132,7 @@ The site has been made, but it is not accessible anywhere. The next few steps wi
      ```
      git push
      ```
-6. Go to your repository's Actions using the top menu bar and you should see a running workflow. When it completes, indidcated by it turning green, you can click into it and see a link to your published site. From now on, whenever you push a change to GitHub, the changes will automatically deploy
+6. Go to your repository's Actions using the top menu bar and you should see a running workflow. When it completes, indicated by its icon turning green, you can click into it and see a link to your published site. From now on, whenever you push a change to GitHub, the changes will automatically deploy
 
 ### Write a README
 
@@ -141,7 +145,7 @@ notepad README.md
 2. Open and write your README, following the example of a-good-readme-template found in the [Further Resources](#further-resources) section
 
 > [!NOTE]
-> According to Etter, a README should summarize the project and provide instructions on how to use it. Good candidates for documentation would be its dependencies, like Hugo, how to run the site locally, using `huso server`, and the GitHub Action workflow created above that publishes the site.
+> According to Etter's principle of Use Distribued Version Control, a README should summarize the project and provide instructions on how to use it. Good candidates for documentation to include in the README would be the project's dependencies, like Hugo, how to run the site locally, using `hugo server`, and the location of the GitHub Action workflow created above that publishes the site.
 
 3. Push the changes to GitHub like you did earlier
 
@@ -161,17 +165,17 @@ And you're done! You wrote a resume using Markdown, created a static site using 
 
 ## FAQs
 
-Q. Can I use a different theme?
+Q. Can I use a different theme?  
 A. Yes, you can browse many themes on [Hugo's website](https://themes.gohugo.io/), pick the one you like, and follow its install instructions.
 
-Q. Can I write posts in the project but keep them private until I'm ready?
+Q. Can I write posts in the project but keep them private until I'm ready?  
 A. Yes, replace `draft: false` with `draft: true` in your post's header and it will not appear in builds. You can also use the commands `hugo server --buildDrafts` or `hugo server -D` to run the site locally and include drafts if you want to preview what a post looks like before publishing it.
 
-Q. Do I have to use `hugo new content content/posts/<FILE NAME>.md` to make new posts?
-A. 
+Q. Do I have to use `hugo new content content/posts/<FILE NAME>.md` to make new posts?  
+A. No, you can manually create new files in the posts folder and they will be treated like files that were created with the above command.
 
-Q. Do I have to create and link a repository from GitHub
-A. 
+Q. Can I add Hugo to an existing repository instead of linking a new one?  
+A. Yes, you can use the `hugo new site` command on an existing repository, but you need to include the `--force` flag, so the new command would like this: `hugo new site <PROJECT NAME> --format yaml --force`
 
 
 ## Credits
