@@ -117,6 +117,9 @@ The site has been made, but it is not accessible anywhere. The next few steps wi
 > [!IMPORTANT]
 > Make sure to update your `.github/workflows/hugo.yaml`'s `HUGO_VERSION` value to match the version of Hugo you are using. Use the command `hugo version` to check your version and take the piece that looks like `0.145.0`.
 
+> [!IMPORTANT]
+> Also make sure to go to the Pages section of your GitHub repo's Settings and change the Source from "Deploy from a branch" to "GitHub Actions" to ensure the automatic deployment is successful.
+
 4. Optional: Configure your site:
    - Modify the `baseURL` and `title` values in the project's root directory's `hugo.yaml` to match your production URL and your intended site title. The production URL can be easily found after step 6 when the site is published
 5. Commit your changes and push them to GitHub:
